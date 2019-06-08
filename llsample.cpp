@@ -53,6 +53,13 @@ int count(){
 	}
  return count;
 }
+node * getpos(){
+	node * current = head;
+	while( current != NULL){
+	current = current->next;
+	}
+	return current;
+}
 void insertat(int val, int pos){
 	//if insert at first pos
 	if ( pos == 1){
@@ -89,24 +96,9 @@ void deleteat(int pos){
 	delete t;
 	}
 }
-//compare two linklist//a recursive c++ function
 
-/*bool compare(node * a, node * b){
-	//if both list are empty
-	if (a == NULL && b == NULL){
-	return true;
-	}
-	//if both lists are not empty, then data of the curerrent node must match
-	//and same should be recursively true for rest of the node
-	 else if ( a == NULL || b == NULL){
-		return false;
-	}
-	if (a->val == b->val){
-	return compare( a->next , b->next);
-	}
-	else{ return false;
-	}
-}*/
+
+
 
 void display(){
 	node * current = head;
@@ -117,18 +109,46 @@ void display(){
 	cout<< "NULL"<<endl;
 }
 
-
 };
 
 
+bool compare(node * a, node * b){
+	//if both list are empty
+	if (a == NULL && b == NULL){
+		return true;
+	}
+	//if both lists are not empty, then data of the curerrent node must match
+	//and same should be true for rest of the node
+	 else if ( a == NULL || b == NULL){
+		return false;
+	}
 
-int main(){
+	if (a->val == b->val){
+		return compare( a->next , b->next);
+	}
+	else{ 
+		return false;
+	}
+}
+
+
+/*int main(){
 	linklist l1;
 	
 	for (int i = 5 ; i > 0; i--){
 		l1.insert(i);
 	}
+	linklist l2;
 	
+	for(int i = 4 ; i > 0; i--){
+		l2.insert(i);
+	}
+	if( compare (l1.head, l2.head) == true ){
+		cout << "identical"<<endl;	
+	}
+	else { 
+		cout << "not identical"<<endl;  
+	 }
 	l1.display();
 	l1.del();
 	l1.display();
@@ -144,6 +164,14 @@ int main(){
 	l1.deleteat(3);
 	l1.display();
 	
-return 0;
 
-}
+
+} */
+
+
+
+
+
+
+
+
